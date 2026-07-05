@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1knxvjgho0mp"]
+
+[ext_resource type="Script" uid="uid://cgbifm0pnmkmg" path="res://views/options_menu/options_menu.gd" id="1_m7s0r"]
+[ext_resource type="Texture2D" uid="uid://cxv12e68rsy4l" path="res://assets/images/back.png" id="1_t7eb8"]
+[ext_resource type="Texture2D" uid="uid://q4dbw7f3ocbq" path="res://assets/images/home.png" id="2_m7s0r"]
+
+[node name="OptionsMenu" type="Control"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -1173.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m7s0r")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.370364, 0.370364, 0.370364, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_direction = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 29.0
+offset_right = -7.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="back_button" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("1_t7eb8")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="home_button" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_m7s0r")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="HBoxContainer/back_button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/home_button" to="." method="_on_home_button_pressed"]

@@ -1,0 +1,130 @@
+[gd_scene load_steps=11 format=3 uid="uid://dwdidht7edvqf"]
+
+[ext_resource type="Script" uid="uid://d1q7mvu1fw56s" path="res://views/catalog/catalog.gd" id="1_b47qj"]
+[ext_resource type="PackedScene" uid="uid://c1knxvjgho0mp" path="res://views/options_menu/options_menu.tscn" id="2_bamli"]
+[ext_resource type="Texture2D" uid="uid://bkefjdhqwmbc5" path="res://assets/images/bebidas.png" id="3_3ixk0"]
+[ext_resource type="Texture2D" uid="uid://7ijsyxwins4q" path="res://assets/images/lacteos.png" id="4_20pyj"]
+[ext_resource type="Texture2D" uid="uid://bclypn4qpfo0d" path="res://assets/images/fiambre.png" id="5_n02en"]
+[ext_resource type="Texture2D" uid="uid://b27i1kpsdgnmp" path="res://assets/images/mercaderia.png" id="6_hna3c"]
+[ext_resource type="Texture2D" uid="uid://d23cyjmiq1rqh" path="res://assets/images/panaderia.png" id="7_5nboy"]
+[ext_resource type="Texture2D" uid="uid://b6vk5bkupr4ds" path="res://assets/images/golosinas.png" id="8_6v4ah"]
+[ext_resource type="Texture2D" uid="uid://m6ie0kfq8rrq" path="res://assets/images/snaks.png" id="9_o6ylr"]
+[ext_resource type="Texture2D" uid="uid://d1mtaxqcf06rm" path="res://assets/images/limpieza.png" id="10_cnpwt"]
+
+[node name="Catalog" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b47qj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.54902, 0.639216, 0.721569, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionsMenu" parent="VBoxContainer" instance=ExtResource("2_bamli")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="left_container" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="bebidas_button" type="TextureButton" parent="VBoxContainer/HBoxContainer/left_container"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("3_3ixk0")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="lacteos_button" type="TextureButton" parent="VBoxContainer/HBoxContainer/left_container"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("4_20pyj")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="fiambres_button" type="TextureButton" parent="VBoxContainer/HBoxContainer/left_container"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("5_n02en")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="mercaderia_button" type="TextureButton" parent="VBoxContainer/HBoxContainer/left_container"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("6_hna3c")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="right_container" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="panaderia" type="TextureButton" parent="VBoxContainer/HBoxContainer/right_container"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("7_5nboy")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="golosinas" type="TextureButton" parent="VBoxContainer/HBoxContainer/right_container"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("8_6v4ah")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="snaks" type="TextureButton" parent="VBoxContainer/HBoxContainer/right_container"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("9_o6ylr")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="limpieza" type="TextureButton" parent="VBoxContainer/HBoxContainer/right_container"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("10_cnpwt")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/left_container/bebidas_button" to="." method="category_button" binds= ["bebidas"]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/left_container/lacteos_button" to="." method="category_button" binds= ["lacteos"]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/left_container/fiambres_button" to="." method="category_button" binds= ["fiambres"]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/left_container/mercaderia_button" to="." method="category_button" binds= ["mercaderia"]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/right_container/panaderia" to="." method="category_button" binds= ["panaderia"]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/right_container/golosinas" to="." method="category_button" binds= ["golosinas"]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/right_container/snaks" to="." method="category_button" binds= ["snaks"]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/right_container/limpieza" to="." method="category_button" binds= ["limpieza"]]
